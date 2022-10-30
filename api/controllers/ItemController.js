@@ -51,9 +51,13 @@ const readById = async (req, res) => {
 
 
 const update = async (req, res) => {
- const {id } = req.params;
+ const { id } = req.params;
   try {
-    Item.findByIdAndUpdate(id, req.body);
+    const item = await Item.findByIdAndUpdate(id, req.body, 
+      {
+        new:true,
+      });
+   
     return res.json({
       msg: 'Item modificado',
       item,
