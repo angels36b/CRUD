@@ -18,9 +18,9 @@ const create = async (req, res) => {
 const read = async (req, res) => {
 
   try {
-    const items = await Item.find(res.query);
+    const items = await Item.find(req.query);
      return res.json({
-        msg: 'Items encontrados',
+        msg: 'Items encontrados en la tabla',
         items,
        
       })
